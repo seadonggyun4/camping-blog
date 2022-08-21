@@ -1,6 +1,7 @@
 # Camping blog
 
-![main](https://user-images.githubusercontent.com/84368302/184287843-bb0a4eee-6350-41f3-8135-885580486ff0.PNG)
+![camping-blog](https://user-images.githubusercontent.com/84368302/185793908-ddf4738f-c311-46fd-9e91-82076f265a30.PNG)
+
 
 <br>
 <br>
