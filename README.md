@@ -63,4 +63,145 @@ Camping Blog는 SSG 방식으로 동작<br>
 <br>
 
 # Sanity Studio 통한 컨텐츠 관리
+Sanity.io 는 컨텐츠 관리 플랫폼으로 서 웹어플리케션을 구성하고 있는 데이터 컨텐츠를 관리할수 있는 툴이다.
+<br>
+<br>
 
+## 1. sanity 툴을 설치한뒤 sanity 스튜디오에서 사용할 스키마를 작성한다.
+
+```javascript
+export default {
+  name: 'post',
+  title: 'Post',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required()
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required()
+    },
+    {
+      name: 'subtitle',
+      title: 'Sub Title',
+      type: 'string',
+      validation: (Rule) => Rule.required()
+    },
+    {
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: {type: 'author'},
+      validation: (Rule) => Rule.required()
+    },
+    {
+      name: 'content',
+      title: 'Content',
+      type: 'blockContent',
+      validation: (Rule) => Rule.required()
+    },
+    {
+      name: 'createdAt',
+      title: 'Created at',
+      type: 'datetime',
+      validation: (Rule) => Rule.required()
+    },
+    {
+      name: 'thumbnail',
+      title: 'Thumbnail',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'alt',
+          options: {
+            isHighlighted: true
+          },
+          validation: (Rule) => Rule.required()
+        }
+      ],
+      validation: (Rule) => Rule.required()
+    },
+    {
+      name: 'tag',
+      title: 'Tag',
+      type: 'reference',
+      to: { type: "tag" },
+      validation: (Rule) => Rule.required()
+    },
+    
+  ],
+
+  preview: {
+    select: {
+      title: 'title',
+      author: 'author.name',
+      media: 'thumbnail',
+    },
+    prepare(selection) {
+      const {author} = selection
+      return Object.assign({}, selection, {
+        subtitle: author && `by ${author}`,
+      })
+    },
+  },
+}
+```
+- Post 페이지 스키마 예시
+<br>
+<br>
+
+## 2. Sanity Studio 에서 콘텐츠를 업로드 한다.
+
+
+
+
+<br>
+<br>
+
+## 3. Next.js 프로젝트에서 쿼리문을 작성해 데이터를 받아온다.
+
+```javascript
+async getPosts() {
+        return await this._client.fetch(`
+            *[_type == 'post']{
+            title, 
+            subtitle, 
+            createdAt, 
+            'content': content[]{
+                    ..., 
+                    ...select(_type == 'imageGallery' -> {'images': images[]{..., 'url':asset -> url}})
+                },
+                'slug':slug.current,
+                'thumbnail': {
+                    'alt': thumbnail.alt,
+                    'imageUrl': thumbnail.asset -> url
+                },
+                "author": author -> {
+                    name,
+                    role,
+                    'image': image.asset -> url
+                },
+                "tag": tag -> {
+                    title,
+                    'slug': slug.current
+                }
+            }
+        `)
+    }
+```
+- getPost 부분 예시
