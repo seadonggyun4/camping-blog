@@ -34,25 +34,25 @@ export default function Home({ home, posts }) {
     <>
       <div className="parallax-wrap">
             <div className="parallax__layer parallax__layer__0" aria-hidden="true">
-                <img src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_0.png?raw=true"  alt="parallax image"/>
+                <img src="/img/layer_0.png"  alt="parallax image"/>
             </div>
             <div className="parallax__layer parallax__layer__1" aria-hidden="true">
-                <img src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_1.png?raw=true"  alt="parallax image"/>
+                <img src="/img/layer_1.png"  alt="parallax image"/>
             </div>
             <div className="parallax__layer parallax__layer__2" aria-hidden="true">
-                <img src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_2.png?raw=true"  alt="parallax image"/>
+                <img src="/img/layer_2.png"  alt="parallax image"/>
             </div>
             <div className="parallax__layer parallax__layer__3" aria-hidden="true">
-                <img src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_3.png?raw=true"  alt="parallax image"/>
+                <img src="/img/layer_3.png"  alt="parallax image"/>
             </div>
             <div className="parallax__layer parallax__layer__4" aria-hidden="true">
-                <img src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_4.png?raw=true"  alt="parallax image"/>
+                <img src="/img/layer_4.png"  alt="parallax image"/>
             </div>
             <div className="parallax__layer parallax__layer__5" aria-hidden="true">
-                <img src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_5.png?raw=true"  alt="parallax image"/>
+                <img src="/img/layer_5.png"  alt="parallax image"/>
             </div>
             <div className="parallax__layer parallax__layer__6" aria-hidden="true">
-                <img src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_6.png?raw=true"  alt="parallax image"/>
+                <img src="/img/layer_6.png"  alt="parallax image"/>
             </div>
             <div className="parallax__cover">
               <h1 className='title'>

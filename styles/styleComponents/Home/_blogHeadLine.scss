@@ -74,11 +74,13 @@
         }
     }
 
-    span{
-        img{
-            z-index: 1;
-        }
+
+    &-img{
+        width: 200px;
+        height: 200px;
+        z-index: 1;
     }
+
 
     .flame{
         @include pos-center;
@@ -116,10 +118,11 @@
             font-size: 15px;
         }
 
-        span{
-            height: 250px !important;
-            width: 250px !important;
+        &-img{
+            height: 250px ;
+            width: 250px ;
         }
+
 
         .flame{
             top: 38%;
@@ -138,11 +141,10 @@
         &-maintext{
             font-size: 40px;
         }
-    
 
-        span{
-            height: 300px !important;
-            width: 300px !important;
+        &-img{
+            height: 300px ;
+            width: 300px ;
         }
 
         .flame{

@@ -1,11 +1,10 @@
 import { Col, Row } from 'antd'
-import Image from 'next/image'
 import { useEffect } from 'react'
 import ScrollMagic from 'scrollmagic'
 
 
 
-import headlineImage from '../../public/img/headline-img.webp'
+
 
 export default function BlogHeadline(){
     useEffect(() => {
@@ -49,8 +48,7 @@ export default function BlogHeadline(){
                             Please enjoy my vivid experiences!
                         </p>
                     </div>
-                    <Image className='headline-img' src={headlineImage} alt="headline-img"  width={200} height={200} aria-hidden="true">
-                    </Image>
+                    <img className='headline-img' src="./img/headline-img.webp" alt="headline-img" aria-hidden="true"/>
                     <div className="flame" aria-hidden="true"></div>
                 </section>
             </Col>

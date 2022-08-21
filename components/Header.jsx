@@ -67,7 +67,7 @@ export default function Header(){
                                 </Link>
                             </li>
                             <li className="header-list-item">
-                                <Link href="/post/my-blog">
+                                <Link href="/post/camping">
                                    <a>Post</a> 
                                 </Link>
                             </li>
