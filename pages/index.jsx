@@ -18,14 +18,65 @@ export default function Home({ home, posts }) {
   // console.log(otherPosts)
 
 
+  // 쿠키 저장 메서드
+  const setParallaxCookie = () => {
+    var parallaxCookie = "";
+    parallaxCookie += "parallax=on;";
+
+    // 쿠키에 넣는다.
+    document.cookie = parallaxCookie;
+  }
+  
+  
+  // 쿠키 가져오기 메서드
+  const getCookie = (Name) => {
+      let search = Name + "="
+      if (document.cookie.length > 0) {
+          let offset = document.cookie.indexOf(search)
+          if (offset !== -1) {
+              offset += search.length
+                  
+              let end = document.cookie.indexOf(";", offset)
+              
+              if (end === -1) end = document.cookie.length
+              return unescape(document.cookie.substring(offset, end))
+          }
+      }
+      return "";
+  }
+
+
   useEffect(() => {
     const parallaxLayers = document.querySelectorAll('.parallax__layer')
-    parallaxLayers.forEach((layer) => {
-      layer.classList.add('active')
-    })
-
     const title = document.querySelector('.title')
-    title.classList.add('active')
+
+    if(getCookie('parallax') === 'on'){
+      parallaxLayers.forEach((layer) => {
+        layer.style.transition = 'none'
+      })
+
+      parallaxLayers[0].style.transform = 'translateZ(-300px) scale(4) translateY(-20px)' 
+      parallaxLayers[0].style.opacity = 1
+      parallaxLayers[1].style.transform = 'translateZ(-250px) scale(3.15) translateY(-20px)'
+      parallaxLayers[2].style.transform = 'translateZ(-200px) scale(2.65) translateY(-30px)'
+      parallaxLayers[3].style.transform = 'translateZ(-150px) scale(2.15)'
+      parallaxLayers[4].style.transform = 'translateZ(-100px) scale(1.65)'
+      parallaxLayers[5].style.transform = 'translateZ(-50px) scale(1.15)'
+      parallaxLayers[6].style.transform = 'translateZ(0px) scale(.65)'
+
+      title.style.transition = 'none'
+      title.style.opacity = 1
+    } else{
+      parallaxLayers.forEach((layer) => {
+        layer.classList.add('active')
+      })
+      
+      title.classList.add('active')
+
+      setTimeout(() => {
+        setParallaxCookie()//쿠키 저장
+      },2000)
+    }
 
   },[])
 
