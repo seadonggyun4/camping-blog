@@ -166,6 +166,7 @@ export default {
 <br>
 
 ## 2. Sanity Studio 에서 콘텐츠를 업로드 한다.
+![sanitystudio](https://user-images.githubusercontent.com/84368302/185794786-8db3393b-23c4-49e6-827d-5ff27be5d637.PNG)
 
 
 
