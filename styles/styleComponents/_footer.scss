@@ -1,0 +1,105 @@
+.footer{
+  @include flexbox;
+  position: fixed;
+  margin-top: 700px;
+  width: 3000px;
+  background: $footer-color;
+  z-index: 1;
+
+  &-textBox{
+    padding: 30px;
+    max-width: 1500px;
+    width: 300px;
+    z-index: 2;
+
+    h2{
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
+    span{
+      color: #fff;
+    }
+  }
+
+
+  .bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    background: $footer-color;
+    filter: url("#blob");
+
+
+    .bubble {
+      position: absolute;
+      left: var(--position, 50%);
+      background: $footer-color;
+      border-radius: 100%;
+      -webkit-animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+      animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+      transform: translate(-50%, 100%);
+    }
+  }
+
+  @-webkit-keyframes bubble-size {
+    0%, 75% {
+      width: var(--size, 3rem);
+      height: var(--size, 3rem);
+    }
+    100% {
+      width: 0rem;
+      height: 0rem;
+    }
+  }
+  
+  @keyframes bubble-size {
+    0%, 75% {
+      width: var(--size, 3rem);
+      height: var(--size, 3rem);
+    }
+    100% {
+      width: 0rem;
+      height: 0rem;
+    }
+  }
+
+  @-webkit-keyframes bubble-move {
+    0% {
+      bottom: -2rem;
+    }
+    100% {
+      bottom: var(--distance, 10rem);
+    }
+  }
+
+  @keyframes bubble-move {
+    0% {
+      bottom: -2rem;
+    }
+    100% {
+      bottom: var(--distance, 10rem);
+    }
+  }
+
+  @include responsive(T){
+    &-textBox{
+      width: 800px;
+
+      h2{
+        font-size: 2rem;
+      }
+    }
+  }
+
+  @include responsive(D){
+    &-textBox{
+      width: 100%;
+    }
+  }
+}
+
+ 
+

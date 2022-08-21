@@ -1,0 +1,207 @@
+.parallax-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    margin-left: -1500px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 100px;
+
+    
+
+    .parallax__layer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: transform .8s ease-in, opacity .8s ease-in;
+
+        img {
+            display: block;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    .parallax__cover {
+        @include flexbox;
+        position: absolute;
+        top: 82%;
+        left: 0;
+        right: 0;
+        // padding: 0 700px 300px 700px;
+        padding-bottom: 300px;
+        width: 3000px;
+        // width: 100%;
+        // max-width: 3000px;
+        background: #fff;
+        z-index: 2;
+
+        .parallax__cover__bg{
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 1000px;
+            // background: #2d112b;
+            background: linear-gradient(165deg, rgba(45,17,43,1) 55%, rgba(188,45,0,1) 97%);;
+            clip-path: polygon(0 0, 100% 1%, 100% 51%, 0% 100%);
+            z-index: -1;
+        }
+
+        .title{
+            
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            width: 100%;
+            transform: translateX(-50%) ;
+            transition: all 6s ease-in;
+            opacity: 0;
+
+            svg{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                
+    
+                text{
+                    @include pos-center;    
+                    stroke-width: 0;
+                    stroke: $footer-color;
+                    fill: $footer-color;
+                    transform: translateX(45.8%);
+                    font-size: 6px;
+                    animation: stroke2 20s;
+                }
+    
+                @keyframes stroke2 {
+                    0%{
+                        fill: rgba($color: $footer-color, $alpha: 0);
+                        stroke: rgba($color: $footer-color, $alpha: .2);
+                        stroke-dashoffset: 25%;
+                        stroke-dasharray: 0 50%;
+                        stroke-width: 0.5;
+                    }
+                    25%{
+                        fill: rgba($color: $footer-color, $alpha: .05);
+                        stroke: rgba($color: $footer-color, $alpha: .4);
+                    }
+                    40%{
+                        fill: rgba($color: $footer-color, $alpha: .2);
+                        stroke: $footer-color;
+                        stroke-width: 0.5;
+                    }
+                    75%{
+                        fill: rgba($color: $footer-color, $alpha: .75);
+                        stroke: rgba($color: $footer-color, $alpha: .8);
+                    }
+                    100%{
+                        fill: $footer-color;
+                        stroke: $footer-color;
+                        stroke-dashoffset: -25%;
+                        stroke-dasharray: 50% 0;
+                        stroke-width: 0;
+                    }
+                }
+            }
+
+            &.active{
+                opacity: 1;
+            }
+        }
+    }
+
+    
+    .parallax__layer__0 {
+        transition-delay: 2.5s;
+        transform: translateZ(-300px) scale(3.8);
+        opacity: 0;
+    }
+    
+    .parallax__layer__1 {
+        transition-delay: 2.1s;
+        transform: translateZ(-250px) scale(3.15) translateY(100px);   
+    }
+    
+    .parallax__layer__2 {
+        transition-delay: 1.6s;
+        transform: translateZ(-200px) scale(2.65) translateY(100px);
+    }
+    
+    .parallax__layer__3 {
+        transition-delay: 1.2s;
+        transform: translateZ(-150px) scale(2.15) translateY(100px);
+    }
+    
+    .parallax__layer__4 {
+        transition-delay: .8s;
+        transform: translateZ(-100px) scale(1.65) translateY(100px);
+    }
+    
+    .parallax__layer__5 {
+        transition-delay: .4s;
+        transform: translateZ(-50px) scale(1.15) translateY(100px);
+    }
+    
+    .parallax__layer__6 {
+        transform: translateZ(0px) scale(.65) translateY(100px);
+    }
+
+
+
+
+    .parallax__layer__0.active {
+        transform: translateZ(-300px) scale(4) translateY(-20px);
+        opacity: 1;
+    }
+    
+    .parallax__layer__1.active {
+        transform: translateZ(-250px) scale(3.15) translateY(-20px);   
+    }
+    
+    .parallax__layer__2.active {
+        transform: translateZ(-200px) scale(2.65) translateY(-30px);
+    }
+    
+    .parallax__layer__3.active {
+        transform: translateZ(-150px) scale(2.15);
+    }
+    
+    .parallax__layer__4.active {
+        transform: translateZ(-100px) scale(1.65);
+    }
+    
+    .parallax__layer__5.active {
+        transform: translateZ(-50px) scale(1.15);
+    }
+    
+    .parallax__layer__6.active {
+        transform: translateZ(0px) scale(.65);
+    }
+
+
+
+
+    @include responsive(T){
+        .parallax__cover{
+            .title{
+                svg{
+                    text{
+                        transform: translateX(44.5%);
+                        font-size: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+

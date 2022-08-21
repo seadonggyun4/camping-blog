@@ -1,0 +1,157 @@
+.headline{
+    @include flexbox(around, center);
+    position: relative;
+    flex-direction: column-reverse;
+    margin: 100px 0 100px 0;
+    padding: 20px 0 20px 0;
+    width: 100%;
+
+    &-maintext{
+        position: relative;
+        font-size: 20px;
+        color: #f8f8f8;
+        transform-origin: left; 
+        transform: scaleX(0); 
+        transition: .5s;
+        transition-delay: .5s; 
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $footer-color; 
+            transform-origin: right; /*오른쪽*/
+            transition: .3s;
+            transition-delay: 0;  /*0초 -> 글자가 작아지기전 먼저 작아저야한다.*/
+        }
+
+        &.active{
+        transform: scaleX(1); /*크기1*/
+        transition-delay: 0s; /*0초*/
+    
+    
+            &::before{
+                transform: scaleX(0);
+                transition-delay: 0.5s; /*0.5초 -> 글자 가 나타난 뒤에 가림막은 나타나야 한다.*/
+            }
+        }
+    }
+
+    &-subtext{
+        position: relative;
+        font-size: 13px;
+        color: #f8f8f8;  
+        transform-origin: left; 
+        transform: scaleX(0); 
+        transition: .5s;
+        transition-delay: .5s;  
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $primary-color; 
+            transform-origin: right; /*오른쪽*/
+            transition: .3s;
+            transition-delay: 0;  /*0초 -> 글자가 작아지기전 먼저 작아저야한다.*/
+        }
+
+        &.active{
+            transform: scaleX(1); /*크기1*/
+            transition-delay: .3s; /*0초*/
+    
+    
+            &::before{
+                transform: scaleX(0);
+                transition-delay: 0.8s; /*0.5초 -> 글자 가 나타난 뒤에 가림막은 나타나야 한다.*/
+            }
+        }
+    }
+
+    span{
+        img{
+            z-index: 1;
+        }
+    }
+
+    .flame{
+        @include pos-center;
+        content: '';
+        top: 30%;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: $flame-color;
+        filter: blur(20px);
+        animation: burn .1s ease-in-out infinite alternate;
+
+
+        @keyframes burn {
+            from {
+              box-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba($color: $flame-color, $alpha: .52), 0 0 21px rgba($color: $flame-color, $alpha: .92), 0 0 34px rgba($color: $flame-color, $alpha: .78), 0 0 54px rgba($color: $flame-color, $alpha: .92);
+            }
+            to {
+              box-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba($color: $flame-color, $alpha: .28), 0 0 42px rgba($color: $flame-color, $alpha: .64), 0 0 58px rgba($color: $flame-color, $alpha: .58), 0 0 80px $flame-color;
+            }
+        }
+    }
+
+    @include responsive(T){
+        flex-direction: row;
+        justify-content: center;
+        margin: 250px 0 300px 0;
+
+
+        &-maintext{
+            font-size: 30px;
+        }
+    
+        &-subtext{
+            font-size: 15px;
+        }
+
+        span{
+            height: 250px !important;
+            width: 250px !important;
+        }
+
+        .flame{
+            top: 38%;
+            left: 78%;
+            width: 110px;
+            height: 110px;
+        }
+
+    }
+
+    @include responsive(D){
+        justify-content: space-between;
+        max-width: 1200px;
+
+
+        &-maintext{
+            font-size: 40px;
+        }
+    
+
+        span{
+            height: 300px !important;
+            width: 300px !important;
+        }
+
+        .flame{
+            left: 87%;
+            width: 150px;
+            height: 150px;
+        }
+
+    }
+}
+
+

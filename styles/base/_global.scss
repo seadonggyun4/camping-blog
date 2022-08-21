@@ -1,0 +1,113 @@
+// ========== [ 자주 사용되는 유틸리티성이 높은 클래스 묶음 ] ==========
+.float--right {
+    float: right !important;
+    padding: 0.8rem;
+}
+
+
+  
+
+// 스크린 리더 대응
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important; // Fix for https://github.com/twbs/bootstrap/issues/25686
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.sm-only {
+    @media screen and (min-width: $md-breakpoint) {
+      display: none !important;
+    }
+  }
+  
+.md-only {
+    @media screen and (max-width: #{$md-breakpoint - 1}) {
+        display: none !important;
+    }
+    @media screen and (min-width: $lg-breakpoint) {
+        display: none !important;
+    }
+}
+
+.lg-only {
+    @media screen and (max-width: #{$lg-breakpoint - 1}) {
+        display: none !important;
+    }
+}
+
+.sm-hidden {
+    @media screen and (max-width: #{$md-breakpoint - 1}) {
+        display: none !important;
+    }
+}
+
+.md-hidden {
+    @media screen and (min-width:$md-breakpoint) and (max-width: #{$lg-breakpoint - 1}) {
+        display: none !important;
+    }
+}
+
+.lg-hidden {
+    @media screen and (min-width: $lg-breakpoint) {
+        display: none !important;
+    }
+}
+
+
+
+// ========== [ 글로벌 리셋 ] ==========
+
+#wrap{
+    width: 100vw;
+    height: 100vh;
+    background: $wrap-color;
+
+    ::-moz-selection {
+        background: rgba($color: $footer-color, $alpha: .6);
+        
+    }
+    ::selection {
+        background: rgba($color: $footer-color, $alpha: .6);
+    }
+    
+}
+
+.parallax-wrap{
+
+    &::-webkit-scrollbar {
+        width: 10px;  /* 스크롤바의 너비 */
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        height: 30%; /* 스크롤바의 길이 */
+        background: $flame-color; /* 스크롤바의 색상 */
+        
+        border-radius: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: #f5f5f5;  /*스크롤바 뒷 배경 색상*/
+    }
+
+    
+}
+
+
+
+
+
+a{
+    color: $font-color !important;
+    transition: color .3 ease-in-out;
+
+    &:hover{
+        color: $primary-color !important;
+    }
+}
+

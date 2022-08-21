@@ -1,0 +1,82 @@
+.header{
+    @include flexbox(start, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    height: 100px;
+    width: 100%;
+    z-index: 100;
+
+
+
+    &-title{
+        font-size: 15px;
+
+        .anticon{
+            font-size: 25px;
+            margin-right: 10px
+        }
+    }
+
+    &-list{
+        ul{
+            @include flexbox;
+    
+            .header-list-item{
+                position: relative;
+                margin-right: 50px;
+                font-size: 15px;
+                
+                &:last-child{
+                    margin-right: 0;
+                }
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    height: 3px;
+                    width: 100%;
+                    background: $footer-color;
+                    transform: scale(0);
+                    transform-origin: left;
+                    transition: transform .3s ease-in-out;
+                }
+
+                &:hover{
+                    &::after{
+                        transform: scale(1);
+                    }
+                }
+            }
+
+            .header-list-item.pf-btn{
+                &::after{
+                    display: none;
+                }
+            }
+        }
+    }
+
+
+    @include responsive(T){
+        justify-content: space-between;
+        padding: 0 50px;
+
+        &-title{
+            font-size: 15px;
+    
+            .anticon{
+                font-size: 20px;
+                margin-right: 10px
+            }
+        }
+    }
+
+    @include responsive(D){
+        padding: 0 100px;
+    }
+}
+

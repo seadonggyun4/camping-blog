@@ -1,0 +1,24 @@
+.postdetail{
+    margin: 150px 0 200px 0;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.125rem;
+
+    figure{
+        img{
+            width: 100%;
+        }
+    }
+
+
+    @include responsive(T){
+        max-width: 500px;
+    }
+
+    @include responsive(D){
+        margin: 200px 0 200px 0;
+        max-width: 800px;
+    }
+}
+
+
