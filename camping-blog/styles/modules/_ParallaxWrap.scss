@@ -149,7 +149,7 @@
     }
     
     .parallax__layer__6 {
-        transform: translateZ(0px) scale(.65) translateY(100px);
+        transform: translateZ(0px) scale(.65) translateY(100px) translateX(120px);
     }
 
 
@@ -181,7 +181,7 @@
     }
     
     .parallax__layer__6.active {
-        transform: translateZ(0px) scale(.65);
+        transform: translateZ(0px) scale(.65) translateX(120px);
     }
 
 

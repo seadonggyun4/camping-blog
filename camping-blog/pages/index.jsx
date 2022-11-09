@@ -62,7 +62,7 @@ export default function Home({ home, posts }) {
       parallaxLayers[3].style.transform = 'translateZ(-150px) scale(2.15)'
       parallaxLayers[4].style.transform = 'translateZ(-100px) scale(1.65)'
       parallaxLayers[5].style.transform = 'translateZ(-50px) scale(1.15)'
-      parallaxLayers[6].style.transform = 'translateZ(0px) scale(.65)'
+      parallaxLayers[6].style.transform = 'translateZ(0px) scale(.65) translateX(120px)'
 
       title.style.transition = 'none'
       title.style.opacity = 1
